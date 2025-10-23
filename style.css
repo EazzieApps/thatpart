@@ -604,3 +604,44 @@ body {
     height: 70px;
   }
 }
+/* Neon glow effect */
+.neon-glow {
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+}
+
+/* Active playlist item */
+.playlist-item.active {
+  background-color: #222;
+  border-left: 4px solid #0ff;
+}
+
+/* Button hover */
+.control-btn:hover,
+.like-btn:hover {
+  color: #0ff;
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Smooth transitions */
+.progress-fill,
+.volume-fill {
+  transition: width 0.3s ease;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .controls {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .playlist-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .swiper-slide {
+    width: 100px;
+  }
+}
