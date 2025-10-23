@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ThatPart Radio – Live</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="smartphone">
+    <header class="radio-header">
+      <h1>🔴 Live Stream</h1>
+      <p class="tagline">Streaming Empowerment from Cape Town</p>
+      <div class="time-weather">
+        <p id="time"></p>
+        <p id="weather">Sunny, 22°C in Cape Town</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="current-station">
+        <h2>Now Playing</h2>
+        <p id="station-name">ThatPart Radio</p>
+        <p id="station-details">Empowerment, Tech & Community</p>
+        <button id="play-button">Listen Live</button>
+        <audio id="radio-audio" src="https://uk18freenew.listen2myradio.com/live.mp3?typeportmount=s1_22188_stream_993916339"></audio>
+        <p id="nowPlaying">Now Playing: Streaming live...</p>
+      </section>
+    </main>
+
+    <footer>
+      <button onclick="navigateTo('index')"><img src="https://img.icons8.com/ios-filled/24/home.png"><p>Home</p></button>
+      <button onclick="navigateTo('live')"><img src="https://img.icons8.com/ios-filled/24/radio.png"><p>Live</p></button>
+      <button onclick="navigateTo('schedule')"><img src="https://img.icons8.com/ios-filled/24/calendar.png"><p>Schedule</p></button>
+      <button onclick="navigateTo('news')"><img src="https://img.icons8.com/ios-filled/24/news.png"><p>News</p></button>
+      <button onclick="navigateTo('personalities')"><img src="https://img.icons8.com/ios-filled/24/user-group-man-man.png"><p>Presenters</p></button>
+    </footer>
+  </div>
+</body>
+</html>
