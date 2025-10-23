@@ -33,10 +33,10 @@ const songs = [
       "https://github.com/user-attachments/assets/a2ca0dfd-e53f-4e79-b8b0-288847e59b9a"
   },
   {
-    title: "Redemption",
-    artist: "Besomorph & Coopex",
+    title: "thatPart Radio",
+    artist: "LIVE",
     src:
-      "https://github.com/ecemgo/mini-samples-great-tricks/raw/main/song-list/BesomorphCoopex-Redemption.mp3",
+      "https://uk18freenew.listen2myradio.com/live.mp3?typeportmount=s1_22188_stream_993916339",
     image:
       "https://github.com/user-attachments/assets/b286d7ff-52a1-452d-9cd9-5920c937b16e"
   }
