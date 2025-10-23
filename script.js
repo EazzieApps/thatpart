@@ -231,3 +231,98 @@ audioPlayer.volume = volumeRange.value / 100;
 
 // Set initial volume display
 volumeRange.addEventListener("input", updateVolumeDisplay);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const audioPlayer = document.getElementById("audioPlayer");
+  const playPauseBtn = document.getElementById("playPauseBtn");
+  const playPauseIcon = document.getElementById("playPauseIcon");
+  const volumeRange = document.getElementById("volume-range");
+  const volumeFill = document.getElementById("volumeFill");
+  const progressBar = document.getElementById("progress-bar");
+  const progressFill = document.getElementById("progressFill");
+  const currentTimeDisplay = document.getElementById("currentTime");
+  const totalTimeDisplay = document.getElementById("totalTime");
+  const playlistItems = document.querySelectorAll(".playlist-item");
+
+  // Autoplay on load
+  audioPlayer.autoplay = false;
+
+  // Volume fading
+  audioPlayer.volume = 1;
+  function fadeOutVolume() {
+    let vol = audioPlayer.volume;
+    const interval = setInterval(() => {
+      if (vol > 0.1) {
+        vol -= 0.05;
+        audioPlayer.volume = vol;
+        volumeRange.value = vol * 100;
+        volumeFill.style.width = `${vol * 100}%`;
+      } else {
+        clearInterval(interval);
+        audioPlayer.pause();
+        playPauseIcon.classList.replace("fa-pause", "fa-play");
+      }
+    }, 100);
+  }
+
+  // Play/pause toggle
+  playPauseBtn.addEventListener("click", () => {
+    if (audioPlayer.paused) {
+      audioPlayer.play();
+      playPauseIcon.classList.replace("fa-play", "fa-pause");
+    } else {
+      fadeOutVolume();
+    }
+  });
+
+  // Volume control
+  volumeRange.addEventListener("input", () => {
+    const vol = volumeRange.value / 100;
+    audioPlayer.volume = vol;
+    volumeFill.style.width = `${volumeRange.value}%`;
+  });
+
+  // Progress bar update
+  audioPlayer.addEventListener("timeupdate", () => {
+    const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+    progressBar.value = progress;
+    progressFill.style.width = `${progress}%`;
+    currentTimeDisplay.textContent = formatTime(audioPlayer.currentTime);
+    totalTimeDisplay.textContent = formatTime(audioPlayer.duration);
+  });
+
+  // Seek on progress bar
+  progressBar.addEventListener("input", () => {
+    const seekTime = (progressBar.value / 100) * audioPlayer.duration;
+    audioPlayer.currentTime = seekTime;
+  });
+
+  // Format time
+  function formatTime(seconds) {
+    const min = Math.floor(seconds / 60);
+    const sec = Math.floor(seconds % 60).toString().padStart(2, "0");
+    return `${min}:${sec}`;
+  }
+
+  // Playlist switching
+  playlistItems.forEach(item => {
+    item.addEventListener("click", () => {
+      playlistItems.forEach(i => i.classList.remove("active"));
+      item.classList.add("active");
+
+      const index = item.getAttribute("data-index");
+      const sources = [
+        "audio/feel-good.mp3",
+        "audio/castle.mp3",
+        "audio/play-dead.mp3",
+        "audio/know-myself.mp3",
+        "audio/redemption.mp3"
+      ];
+      audioPlayer.src = sources[index];
+      audioPlayer.play();
+      playPauseIcon.classList.replace("fa-play", "fa-pause");
+    });
+  });
+});
+
+
