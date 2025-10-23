@@ -21,3 +21,15 @@ if (playButton && radioAudio) {
 if (nowPlayingEl) {
   nowPlayingEl.textContent = "Now Playing: ThatPart Radio stream";
 }
+function navigateTo(page) {
+  window.location.href = `${page}.html`;
+}
+
+// Highlight active nav button
+const currentPage = window.location.pathname.split("/").pop().replace(".html", "") || "index";
+document.querySelectorAll("footer button").forEach(btn => {
+  const label = btn.querySelector("p")?.textContent?.toLowerCase();
+  if (label && currentPage.includes(label)) {
+    btn.classList.add("active");
+  }
+});
