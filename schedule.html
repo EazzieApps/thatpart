@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ThatPart Radio – Schedule</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="smartphone">
+    <header class="radio-header">
+      <h1>📅 Daily Schedule</h1>
+      <p class="tagline">Your daily dose of empowerment</p>
+      <div class="time-weather">
+        <p id="time"></p>
+        <p id="weather">Sunny, 22°C in Cape Town</p>
+      </div>
+    </header>
+
+    <main>
+      <ul>
+        <li><strong>09:00 – 12:00</strong> ThatPart Morning Show</li>
+        <li><strong>12:00 – 15:00</strong> Tech Tuesdays</li>
+        <li><strong>15:00 – 18:00</strong> 123 Pholaz</li>
+        <li><strong>18:00 – 21:00</strong> Evening Vibes</li>
+      </ul>
+    </main>
+
+    <footer>
+      <button onclick="navigateTo('index')"><img src="https://img.icons8.com/ios-filled/24/home.png"><p>Home</p></button>
+      <button onclick="navigateTo('live')"><img src="https://img.icons8.com/ios-filled/24/radio.png"><p>Live</p></button>
+      <button onclick="navigateTo('schedule')"><img src="https://img.icons8.com/ios-filled/24/calendar.png"><p>Schedule</p></button>
+      <button onclick="navigateTo('news')"><img src="https://img.icons8.com/ios-filled/24/news.png"><p>News</p></button>
+      <button onclick="navigateTo('personalities')"><img src="https://img.icons8.com/ios-filled/24/user-group-man-man.png"><p>Presenters</p></button>
+    </footer>
+  </div>
+</body>
+</html>
