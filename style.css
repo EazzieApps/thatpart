@@ -60,6 +60,23 @@ footer {
   background: #0a5c2f;
   color: white;
 }
+.time-weather {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  color: #fff;
+}
+
+#time::before {
+  content: "🕒";
+}
+
+#weather::before {
+  content: "⛅";
+}
+
 
 .social-icons img {
   width: 24px;
